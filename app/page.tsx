@@ -8,7 +8,6 @@ import { FeaturesSection } from "@/components/features-section"
 import { BatteryTechnology } from "@/components/battery-technology"
 import { AboutSection } from "@/components/about-section"
 import { GallerySection } from "@/components/gallery-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 
@@ -24,7 +23,6 @@ export default function Home() {
         <BatteryTechnology />
         <AboutSection />
         <GallerySection />
-        <TestimonialsSection />
         <ContactSection />
         <Footer />
       </main>

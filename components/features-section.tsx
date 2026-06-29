@@ -119,31 +119,6 @@ export function FeaturesSection() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 text-center"
-        >
-          <div className="inline-flex items-center gap-8 glass-card rounded-full px-8 py-4">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">3 Years</div>
-              <div className="text-xs text-muted-foreground">Battery Warranty</div>
-            </div>
-            <div className="w-px h-10 bg-border" />
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">500+</div>
-              <div className="text-xs text-muted-foreground">Service Centers</div>
-            </div>
-            <div className="w-px h-10 bg-border" />
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">24/7</div>
-              <div className="text-xs text-muted-foreground">Road Assistance</div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

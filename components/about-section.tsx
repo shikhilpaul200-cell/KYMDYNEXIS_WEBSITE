@@ -1,12 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Target, Users, Award, TrendingUp } from "lucide-react"
+import { Users, TrendingUp } from "lucide-react"
 
 const stats = [
   { icon: Users, value: "10,000+", label: "Happy Customers" },
-  { icon: Target, value: "50+", label: "Cities Covered" },
-  { icon: Award, value: "15+", label: "Awards Won" },
   { icon: TrendingUp, value: "99%", label: "Customer Satisfaction" },
 ]
 
