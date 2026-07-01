@@ -30,6 +30,26 @@ const contactInfo = [
 ]
 
 export function ContactSection() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const formData = new FormData(e.currentTarget)
+    const name = String(formData.get("name") || "")
+    const email = String(formData.get("email") || "")
+    const subject = String(formData.get("subject") || "Website enquiry")
+    const message = String(formData.get("message") || "")
+
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      "",
+      "Message:",
+      message,
+    ].join("\n")
+
+    window.location.href = `mailto:sales@kymdynexis.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
+
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background */}
@@ -111,12 +131,13 @@ export function ContactSection() {
           >
             <div className="glass-card rounded-2xl p-6 md:p-8">
               <h3 className="text-xl font-bold mb-6">Send us a Message</h3>
-              <form className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="contact-name">Name</Label>
                     <Input
                       id="contact-name"
+                      name="name"
                       placeholder="Your name"
                       className="bg-secondary/50 border-border focus:border-primary"
                     />
@@ -125,6 +146,7 @@ export function ContactSection() {
                     <Label htmlFor="contact-email">Email</Label>
                     <Input
                       id="contact-email"
+                      name="email"
                       type="email"
                       placeholder="your@email.com"
                       className="bg-secondary/50 border-border focus:border-primary"
@@ -133,19 +155,10 @@ export function ContactSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="contact-phone">Phone</Label>
-                  <Input
-                    id="contact-phone"
-                    type="tel"
-                    placeholder="+91 98765 43210"
-                    className="bg-secondary/50 border-border focus:border-primary"
-                  />
-                </div>
-
-                <div className="space-y-2">
                   <Label htmlFor="contact-subject">Subject</Label>
                   <Input
                     id="contact-subject"
+                    name="subject"
                     placeholder="How can we help?"
                     className="bg-secondary/50 border-border focus:border-primary"
                   />
@@ -155,6 +168,7 @@ export function ContactSection() {
                   <Label htmlFor="contact-message">Message</Label>
                   <textarea
                     id="contact-message"
+                    name="message"
                     rows={4}
                     placeholder="Write your message..."
                     className="flex w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary resize-none"
